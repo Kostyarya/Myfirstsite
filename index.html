@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рябцев Константин Евгеньевич</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#" data-page="home">КРЕ</a>
+      <nav aria-label="Основная навигация">
+        <button class="nav-link active" data-page="home">Главная</button>
+        <button class="nav-link" data-page="about">О проекте</button>
+        <button class="nav-link" data-page="contacts">Контакты</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page active" id="home">
+      <div class="hero">
+        <p class="eyebrow">Учебный проект</p>
+        <h1>Рябцев Константин Евгеньевич</h1>
+        <p class="hero-text">Этот сайт создан для первой аттестации.</p>
+        <button class="primary-button" data-page="about">О проекте</button>
+      </div>
+    </section>
+
+    <section class="page" id="about">
+      <div class="content-card">
+        <p class="eyebrow">Информация</p>
+        <h1>О проекте</h1>
+        <p>Этот сайт — простой учебный проект, созданный для первой аттестации.</p>
+        <p>Он состоит из главной страницы, раздела с информацией о проекте и страницы контактов. Сайт выполнен с использованием HTML, CSS и JavaScript.</p>
+      </div>
+    </section>
+
+    <section class="page" id="contacts">
+      <div class="content-card">
+        <p class="eyebrow">Связь</p>
+        <h1>Контакты</h1>
+        <p>Связаться со мной можно по электронной почте:</p>
+        <a class="email" href="mailto:konstantin.ryabtsev@inbox.ru">konstantin.ryabtsev@inbox.ru</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© Рябцев Константин Евгеньевич</span>
+      <span>Сайт для первой аттестации</span>
+    </div>
+  </footer>
+
+  <script>
+    const pageButtons = document.querySelectorAll('[data-page]');
+    const pages = document.querySelectorAll('.page');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function showPage(pageName) {
+      pages.forEach(page => page.classList.toggle('active', page.id === pageName));
+      navLinks.forEach(link => link.classList.toggle('active', link.dataset.page === pageName));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    pageButtons.forEach(button => {
+      button.addEventListener('click', event => {
+        event.preventDefault();
+        showPage(button.dataset.page);
+      });
+    });
+  </script>
+</body>
+</html>
